@@ -51,6 +51,7 @@ document.createElement('return-home');
  
 		<?php
 
+//get content set up by students teacher
 			try {
 
 			$stmt = $db->prepare('SELECT teacher FROM users WHERE username= :user') ;

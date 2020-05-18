@@ -50,6 +50,8 @@ document.createElement('return-home');
 <div class="main">
  
  <?php
+ //get content set up by students teacher
+
 			try {
 
 			$stmt = $db->prepare('SELECT teacher FROM users WHERE username= :user') ;
@@ -82,6 +84,9 @@ document.createElement('return-home');
   <textarea id="code"rows="20"  cols="50" align="left" >
 <script>
  <?php
+ 
+ //get code example set up by students teacher
+
 			try {
 
 			$stmt = $db->prepare('SELECT teacher FROM users WHERE username= :user') ;
@@ -114,6 +119,9 @@ document.createElement('return-home');
 
 
  <?php
+ 
+ //get content set up by students teacher
+
 			try {
 
 			$stmt = $db->prepare('SELECT teacher FROM users WHERE username= :user') ;

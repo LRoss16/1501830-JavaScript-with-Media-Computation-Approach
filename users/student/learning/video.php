@@ -1,8 +1,11 @@
 <?php
-
+//connect to database
 require_once('../../../includes/config.php');
+//if not logged in, redirect
 if(!$user->is_logged_in()){ header('Location: ../../login.php'); }
 $username =  $_SESSION['username'];
+
+//if not got access, redirect
 if($_SESSION['memberType'] == 1) { header('Location: ../../teacher/index.php'); }
 
 if($_SESSION['memberType'] == 0) { header('Location: ../../admin/index.php'); }
@@ -65,6 +68,9 @@ function draw(v,c,bc,w,h) {
  <?php
 	
 try {
+	
+	//get video set by students teacher
+
 			$stmt = $db->prepare('SELECT teacher FROM users WHERE username= :user') ;
 
 			$stmt->bindParam(':user', $username, PDO::PARAM_STR);

@@ -1,12 +1,21 @@
 <?php
 
+//connect to database
 require_once('../../../includes/config.php');
-$user =  $_SESSION['username'];
+$username =  $_SESSION['username'];
+//if not logged in, redirect
+if(!$user->is_logged_in()){ header('Location: ../../login.php'); }
+
+//If not got access redirect user
+
+if($_SESSION['memberType'] == 2) { header('Location: ../../student/index.php'); }
+
+if($_SESSION['memberType'] == 0) { header('Location: ../../admin/index.php'); }
 
 ?>
 
 <!DOCTYPE html> 
-<title>Video/Canvas Demo 2</title> 
+<title>Video Demo</title> 
 <p><a href="videos.php">Go Back</a></p>
 <script> 
 document.addEventListener('DOMContentLoaded', function(){
@@ -59,10 +68,12 @@ function draw(v,c,bc,w,h) {
  
 <video id=v controls loop> 
  <?php
+ 
+ //get video set by teacher
 		try {
 
 		$stmt = $db->prepare('SELECT `videoTitle`, `video` FROM `videos` where `editedBy` = :user AND selected = 0');
-                $stmt->execute(array(':user' => $user));
+                $stmt->execute(array(':user' => $username));
 		while($row = $stmt->fetch()){
                 $video = $row['video'];
 

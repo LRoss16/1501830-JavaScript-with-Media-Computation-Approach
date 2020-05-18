@@ -40,6 +40,9 @@ document.createElement('current-page');
 <div class="main">
 
  <?php
+ 
+ //get content set up by students teacher
+
 			try {
 
 
@@ -72,6 +75,9 @@ document.createElement('current-page');
   <textarea id="code"rows="20"  cols="50" align="left" >
 <script>
  <?php
+ 
+ //get code example set up by students teacher
+
 			try {
 
              $stmt = $db->prepare('SELECT teacher FROM users WHERE username= :user') ;

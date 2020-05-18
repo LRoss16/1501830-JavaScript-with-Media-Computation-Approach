@@ -1,7 +1,14 @@
 <!DOCTYPE html>
 <?php
 require_once('../../../includes/config.php');
-$user =  $_SESSION['username'];
+$username =  $_SESSION['username'];
+if(!$user->is_logged_in()){ header('Location: ../../login.php'); }
+
+//If not got access redirect user
+
+if($_SESSION['memberType'] == 2) { header('Location: ../../student/index.php'); }
+
+if($_SESSION['memberType'] == 0) { header('Location: ../../admin/index.php'); }
 ?>
  <script>
 document.createElement('current-page');
@@ -47,7 +54,7 @@ document.createElement('return-home');
 			try {
 
 				$stmt = $db->prepare('SELECT `postTitle`, `postCont` FROM `animations` where `editedBy` = :user');
-                                $stmt->execute(array(':user' => $user));
+                                $stmt->execute(array(':user' => $username));
                                 while($row = $stmt->fetch()) {
 					echo '<h1>'.$row['postTitle'].'</h1>';
 					echo '<p>'.$row['postCont'].'</p>';
