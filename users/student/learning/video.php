@@ -13,7 +13,7 @@ if($_SESSION['memberType'] == 0) { header('Location: ../../admin/index.php'); }
 ?>
 
 <!DOCTYPE html> 
-<title>Video/Canvas Demo 2</title> 
+<title>Video Demo</title> 
 <p><a href="videos.php">Go Back</a></p>
 <script> 
 document.addEventListener('DOMContentLoaded', function(){
