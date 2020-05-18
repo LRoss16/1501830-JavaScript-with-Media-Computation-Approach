@@ -1,0 +1,40 @@
+<!--This page will display the variables example -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width" />
+    <script type="text/javascript" src="../js/jquery.1.9.1.min.js"></script>	
+    <link rel="stylesheet" type="text/css" href="../css/imageData.css"/>
+    <script type="text/javascript" src="../js/variables.js"></script>
+</head>
+<body>
+
+    <style>
+        body,html{margin:0px; overflow:hidden;}
+    </style>
+
+    <div id="exampCode" style="width:100%;height:400px;margin:40px 0;"></div>
+
+    <script type="text/javascript">
+        
+        var jsn = null;
+        
+        $(document).ready(function()
+        {
+            $('#exampCode').height($(window).height()-80);
+            jsn = $("#exampCode").JSM();
+            jsn.JSM('resize');
+        });
+        
+        $(window).resize(function()
+        {
+            $('#exampCode').height($(window).height()-80);
+            jsn.JSM('resize');
+        });
+        
+    </script>
+
+
+</body>
+</html>
